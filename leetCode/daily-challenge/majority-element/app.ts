@@ -1,16 +1,13 @@
 function majorityElement(nums: number[]): number {
   const numsMap = new Map();
-  let maxCount = 0;
-  let candidate = 0;
   for (const num of nums) {
     numsMap.set(num, numsMap.get(num) + 1 || 1);
     const currentCount = numsMap.get(num);
-    if (currentCount > maxCount) {
-      maxCount = currentCount;
-      candidate = num;
+    if (currentCount > nums.length / 2) {
+      return num;
     }
   }
-  return candidate;
+  return 0;
 }
 
 const nums = [3, 2, 3];
